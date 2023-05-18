@@ -1,0 +1,68 @@
+body{
+    background:  #2455c0;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 50px;
+    margin: 50px;
+}
+
+.grid-container > div {
+    text-align: center;
+    padding: 20px 0px;
+
+
+}
+
+table
+{
+    width: 250px;
+    height: 250PX;
+    margin: 50px auto;
+    font-size: 24px;
+    background: #9e1c23;
+}
+
+table, tr, td, th
+{
+  
+  border: 1px solid black;
+  border-collapse:collapse;
+  border-collapse:separate;
+  empty-cells: hide;
+  caption-side:bottom;
+}
+
+#circulo {
+    
+    background: #B9C1BB;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin: 100px auto;
+    font-size: 24px;
+    display: flex;
+
+    justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+ button{
+background-color: #EEF7F0;
+color: #000;
+font-size: 1.4rem;
+
+}
+ 
+
+a{
+    background-color: #EEF7F0;
+    color: #000;
+    font-size: 1.6rem;
+    margin: 10px;
+    width: 20px;
+    height: 20px;
+}
