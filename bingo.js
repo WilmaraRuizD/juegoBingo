@@ -43,7 +43,7 @@ function ejecutar(){
        auxiliar.push(numAle);
        console.log(auxiliar);
    
-          unicos= Array.from(new Set(auxiliar));
+      unicos= Array.from(new Set(auxiliar));
        console.log("esto es unico corregido"+unicos);
    
        colecciones=unicos.slice(0,unicos.length);
