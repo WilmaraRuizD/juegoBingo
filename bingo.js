@@ -13,13 +13,11 @@ function ejecutar(){
   //Generar array;
   numAle = generateRandom()
   colecciones.push(numAle);
-  console.log("Coleccion original"+ colecciones);
  //arreglo sin repetir
   let unicos = Array.from(new Set(colecciones));
-  console.log("coleccion sin repetidos" + unicos);
 
- if (colecciones.length>=11){
-    console.log("ya se termino la secuencia ");
+ if (colecciones.length>=75){
+  
     return false;
 
  }else if(colecciones.length!=unicos.length){
@@ -30,22 +28,18 @@ function ejecutar(){
    
    while(tamaño>unicos.length)
    {
-     console.log("ciclo while");
+ 
     //genera nuevamente un numero aliatorio. 
      numAle = generateRandom();
-     console.log("numero aliatorio para repetir"+ numAle);
    
     //se intercambia el valor de unicos para crear array auxiliar
      let auxiliar = unicos.slice(0, unicos.length);
-     console.log("colexion auxiliar"+ auxiliar);
    
    //se agrega nuevo numero aleatorio a array auxiliar
        auxiliar.push(numAle);
        console.log(auxiliar);
    
       unicos= Array.from(new Set(auxiliar));
-       console.log("esto es unico corregido"+unicos);
-   
        colecciones=unicos.slice(0,unicos.length);
    }
 
@@ -53,90 +47,81 @@ function ejecutar(){
   console.log("dato erroneo");
  }
 //Se escribe numero en bola 
-console.log("coleccion unica final "+unicos);
-console.log(unicos[unicos.length-1]);
+
 circle.innerHTML=unicos[unicos.length-1];
 //se escribe los elemetos del array que ya han salido.
 let lista =document.createElement('a');
 lista.textContent=(unicos[unicos.length-1]);
 
+console.log("UNICO PRUEBA "+unicos)
+//recupera los datos de carto1 almacenados en el localStorage 
+
+letraI=localStorage.getItem("letraI");
+letraN=localStorage.getItem("letraN");
+letraG=localStorage.getItem("letraG");
+letraO=localStorage.getItem("letraO");
+
+//Se optiene el ultimo elemento del array unicos para pintar el carton 
+
+const last = unicos[unicos.length-1];
+
+
+if(last <=15){
+console.log("es B");
+letraB=localStorage.getItem("letraB");
+
+console.log("esto es last"+last)
+
+
+
+console.log(indexLetraB(last))
+
+
+
+
+}
+if((last>15)&&(last<=30)){
+  console.log("es I");
+  }
+  if((last>30)&&(last<=45)){
+    console.log("es N");
+    }
+    if((last>45)&&(last<=60)){
+      console.log("es G");
+      }if((last>60)&&(last<=75)){
+        console.log("es O");
+        }
+
+
+//se pinta la lista con los elementos que han salido. 
+
 verNumero.appendChild(lista);
 
 
-}
-
-/* pintar Cartones  */
-let arrayLetraB=[];
-let arrayLetraI=[];
-let arrayLetraN=[];
-let arrayLetraG=[];
-let arrayLetraO=[];
-
-/* Mostrar 6 veces la letra repetida */
-let cartones=document.getElementById('cartones');
-cartones.addEventListener('click',function(e){
- for(let i =0;i<6;i++){
-  arrayLetraB.push(guardarLetraB());
-  arrayLetraI.push(guardarLetraI());
-  arrayLetraN.push(guardarLetraN());
-  arrayLetraG.push(guardarLetraG());
-  arrayLetraO.push(guardarLetraO());
-  
- }
- console.log(arrayLetraB);
- console.log(arrayLetraI);
- console.log(arrayLetraN);
- console.log(arrayLetraG);
- console.log(arrayLetraO);
-
- alert("termino B")
 
 }
-)
-/*randon letra B  */
 
+//validar si el numero es igual a el del carton 
+function indexLetraB(value){
 
-function guardarLetraB(){
-  min=1;
-  max=15;
- var b = Math.floor(Math.random()*(max-min)+min);
- return b;
-}
-/* rando letra I*/
-function guardarLetraI(){
-  min=16;
-  max=30;
- var i = Math.floor(Math.random()*(max-min)+min);
- return i;
-}
-/* randon letra n */
-function guardarLetraN(){
-  min=31;
-  max=45;
- var n = Math.floor(Math.random()*(max-min)+min);
- return n;
-}
+  console.log(letraB)
 
-/* randon letra n */
-function guardarLetraG(){
-  min=46;
-  max=60;
- var g = Math.floor(Math.random()*(max-min)+min);
- return g;
-}
+ console.log(letraB.length );
+  let res = -1;
+  for (let i = 0; i < letraB.length; i++) {
+    if (letraB[i] === value) {
+      console.log(i)
+      res = i;
+      break;
+    }
+  }
+  return res;
 
-/* randon letra n */
-function guardarLetraO(){
-  min=61;
-  max=75;
- var o = Math.floor(Math.random()*(max-min)+min);
- return o;
 }
-
 // Generar numero aleatorio
 function generateRandom() {
-  min=0;
-  max=10 ;
+  min=1;
+  max=75;
   var x = Math.floor(Math.random()*(max-min)+min);  
   return x;
 }
